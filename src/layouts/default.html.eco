@@ -10,6 +10,6 @@
 
     	
     <%- @content %>
-    <%- @getBlock("scripts").add(["/js/glt.js", "/js/lib.js", "/js/dancer.js"]).toHTML() %>
+    <%- @getBlock("scripts").add([ "/js/lib.js", "/js/dancer.js", "/js/processing-1.4.1.js"]).toHTML() %>
 </body>
 </html>

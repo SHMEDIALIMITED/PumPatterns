@@ -1,15 +1,73 @@
 var App = function() {
-	this.gl = glt.getGL(document.getElementById('canvas'), {alpha:false});
+	///this.gl = glt.getGL(document.getElementById('canvas'), {alpha:false});
 
 
 	var r = 54;
-	var r2 = 2 * Math.sqrt(r*r - (r/2*r/2)); 
-	var delta = 1.04719755;
-	var delta2 = 30 * (Math.PI/180) ;
+    var d = Math.sqrt((2*r)*(2*r) - r*r);
+    var d2 = Math.sqrt( (r/2)*(r/2) + (d + d/2) * (d + d/2) );
+    var d3 = Math.sqrt((d/2)*(d/2) + (3*r+r/2) * (3*r+r/2));
+    var d4 = Math.sqrt((d/2)*(d/2) + (4*r+r/2) * (4*r+r/2));
 
+    var dRatio = d2 / d;
+    var rRatio = d / r
+    var r2Ratio = d2 / r
+    var r3Ratio = d3 / r
+	var r2 = 2 * Math.sqrt(r*r - (r/2*r/2));
+	var DEG_60 = 1.04719755;
+	var DEG_30 = 30 * (Math.PI/180) ;
+
+    var delta1 = 2*r/d;
+    var delta2 = 3*r/d2;
+    var delta3 = 4*r/d3;
+
+
+    var alpha1 =  Math.asin((d/2) / d);
+    console.log('ALPHA1', alpha1*180/Math.PI);
+
+    var alpha2 =  Math.asin((d/2) / d2);
+    console.log('ALPHA2', alpha2*180/Math.PI);
+
+    var alpha3 =  Math.asin((d/2) / d3);
+    console.log('ALPHA3', alpha3*180/Math.PI);
+
+    var alpha4 =  Math.asin((d/2) / d4);
+    console.log('ALPHA4', alpha4*180/Math.PI);
+
+    console.log('DELTAS', delta1, delta2, delta3)
+
+    console.log('DELTA of DELTAS', delta1-delta2, delta2- delta3)
+
+    console.log('d', d);
+    console.log('d2', d2)
+    console.log('dRAT/iO', dRatio)
+    console.log('rRAT/iO', rRatio);
+    console.log('r2RAT/iO', r2Ratio)
+    console.log('r3RAT/iO', r3Ratio)
+    console.log('DELTA of RATIOS', r2Ratio-rRatio, r3Ratio-r2Ratio)
 	var circles = [];
 
-	for(var i=0; i < 5; i++) {
+//    c = this.createCircle(350, 300, 'black', 2);
+//
+//    c = this.createCircle(350, 300, 'green', rRatio);
+//
+//
+//    r = 54;
+//    c = this.createCircle(350, 300, 'green', r2Ratio);
+//    c = this.createCircle(350, 300, 'black', 3);
+//
+//    c = this.createCircle(350, 300, 'green', r3Ratio);
+//    c = this.createCircle(350, 300, 'blue', rRatio);
+//    c = this.createCircle(350, 300, 'black', 4);
+//
+//
+//
+//
+
+
+
+
+    r = 54;
+	for(var i=0; i < 6; i++) {
 		
 		var c;
 
@@ -21,48 +79,89 @@ var App = function() {
 
 			case 1 :
 				for(var j = 0; j < 6; j++) {
-					c = 	this.createCircle(350 + r * Math.cos(j*delta), 300 + r * Math.sin(j*delta));
+					c = 	this.createCircle(350 + r * Math.cos(j*DEG_60), 300 + r * Math.sin(j*DEG_60));
 					circles.push(c);
 				} 
 
 				
 				
 			break;
-
+//
 			case 2 :
 				for(var j = 0; j < 6; j++) {
-					c = 	this.createCircle(350 + r2 * Math.cos(j*delta + delta2), 300 + r2 * Math.sin(j*delta + delta2));
+					c = 	this.createCircle(350 + d * Math.cos(j*DEG_60 + DEG_30), 300 + d * Math.sin(j*DEG_60 + DEG_30));
 					circles.push(c);
-				} 
+				}
 
-				
-				
+
+
 			break;
 			case 3 :
 				for(var j = 0; j < 6; j++) {
-						c = this.createCircle(350 + r*2 * Math.cos(j*delta), 300 + r*2 * Math.sin(j*delta));
+						c = this.createCircle(350 + r*2 * Math.cos(j*DEG_60), 300 + r*2 * Math.sin(j*DEG_60));
 					circles.push(c);
-				} 
+				}
 
-				
-				
+
+
 			break;
-
+////
 			case 4 :
+                var angle = alpha2
 				for(var j = 0; j < 6; j++) {
-					c = this.createCircle(350 + (r*3) * Math.cos(j*delta), 300 + (r*3) * Math.sin(j*delta));
-					circles.push(c);
-				} 	
+                    //if(2 % j == 0) angle += DEG_60;
 
+					c = this.createCircle(350 + d2  * Math.cos(angle), 300 + d2  * Math.sin(angle));
+                    angle += (DEG_60)
+					circles.push(c);
+				}
+
+                angle = -alpha2;
+
+                for(var j = 0; j < 6; j++) {
+                    //if(2 % j == 0) angle += DEG_60;
+
+                    c = this.createCircle(350 + d2  * Math.cos(angle), 300 + d2  * Math.sin(angle));
+                    angle += (DEG_60)
+                    circles.push(c);
+                }
+
+               break;
 			case 5 :
 				for(var j = 0; j < 6; j++) {
-					c = this.createCircle(350 + (r*3) * Math.cos(j*delta), 300 + (r*3) * Math.sin(j*delta));
+					c = this.createCircle(350 + (r*3) * Math.cos(j*DEG_60), 300 + (r*3) * Math.sin(j*DEG_60));
 					circles.push(c);
-				} 
+				}
 
-				
-				
-			break;
+            case 6 :
+                var angle = alpha3
+                for(var j = 0; j < 6; j++) {
+                    //if(2 % j == 0) angle += DEG_60;
+
+                    c = this.createCircle(350 + d3  * Math.cos(angle), 300 + d3  * Math.sin(angle), 'red');
+                    angle += (DEG_60)
+                    circles.push(c);
+                }
+
+                angle = -alpha3;
+
+                for(var j = 0; j < 6; j++) {
+                    //if(2 % j == 0) angle += DEG_60;
+
+                    c = this.createCircle(350 + d3  * Math.cos(angle), 300 + d3  * Math.sin(angle), 'red');
+                    angle += (DEG_60)
+                    circles.push(c);
+                }
+
+            case 5 :
+                for(var j = 0; j < 6; j++) {
+                    c = this.createCircle(350 + (r*4) * Math.cos(j*DEG_60), 300 + (r*4) * Math.sin(j*DEG_60));
+                    circles.push(c);
+                }
+//
+//
+//
+//			break;
 		} 
 
 
@@ -95,7 +194,7 @@ var App = function() {
 
   // Let's turn this kick on right away
   kick.on();
-  c.style.background = '#ff0000'; 	
+  //c.style.background = '#ff0000';
   console.log(circles)
   dancer.onceAt( 10, function() {
     // Let's set up some things once at 10 seconds
@@ -152,22 +251,39 @@ var App = function() {
 }
 
 App.Main = function() {
-	glt.raf();
+	//glt.raf();
 	App.instance = new App();
 }
 
 App.prototype = {
 
-	createCircle : function(x,y) {
+	createCircle : function(x,y,color, scale) {
+
 		var c = document.createElement('div');
 		c.className = 'circle';
+        c.style.borderColor = color;
 		c.x = x;
 		c.y = y;
+        c.style.webkitTransform = 'scale(' + scale + ',' + scale + ')';
 		c.style.top = 	y+'px';
 		c.style.left = 	x+'px';
 		document.body.appendChild(c);
 		return c;
-	}
+	},
+
+    createDCircle : function(x,y,color, scale) {
+
+        var c = document.createElement('div');
+        c.className = 'circleD';
+        c.style.borderColor = color;
+        c.x = x;
+        c.y = y;
+        c.style.webkitTransform = 'scale(' + scale + ',' + scale + ')';
+        c.style.top = 	y+'px';
+        c.style.left = 	x+'px';
+        document.body.appendChild(c);
+        return c;
+    }
 
 }
 
