@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title><%= @document.title %> | My Website</title>
+    <%- @getBlock("meta").toHTML() %>
+    <link href='http://fonts.googleapis.com/css?family=Marcellus+SC' rel='stylesheet' type='text/css'>
+    <%- @getBlock("styles").add(["/screen.css"]).toHTML() %>
+</head>
+<body onload="App.Main()">
+    <h1 class="logo"><%= @document.title %></h1>
+
+    	
+    <%- @content %>
+    <%- @getBlock("scripts").add(["/js/glt.js", "/js/lib.js", "/js/dancer.js"]).toHTML() %>
+</body>
+</html>

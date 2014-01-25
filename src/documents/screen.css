@@ -1,0 +1,29 @@
+body, html{ 
+	margin: 0px;
+	padding: 0px;
+	background : #fff;
+	color:#555;
+
+}
+
+h1 {
+	padding: 20px;
+}
+
+.logo {
+	font-family: 'Marcellus SC', serif;
+	font-size: 43.2px; 
+}
+
+.seed {
+	display: block;
+	margin: 0px auto;
+}
+
+.circle {
+	position: absolute;
+	width: 108px;
+	height: 108px;
+	border-radius: 54px;
+	border: solid 1px #000;
+}
