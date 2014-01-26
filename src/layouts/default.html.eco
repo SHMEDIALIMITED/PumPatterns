@@ -6,10 +6,19 @@
     <%- @getBlock("styles").add(["/screen.css"]).toHTML() %>
 </head>
 <body onload="App.Main()">
-    <h1 class="logo"><%= @document.title %></h1>
 
-    	
-    <%- @content %>
+	<div class="wrapper">
+		<header>
+			<h1 class="logo"><%= @document.title %></h1>
+		</header>
+
+		<section class="content">
+			<%- @content %>
+		</section>
+	</div>
+    
+    <div id="canvas-css"></div>
+    
     <%- @getBlock("scripts").add([ "/js/lib.js", "/js/dancer.js", "/js/processing-1.4.1.js"]).toHTML() %>
 </body>
 </html>
