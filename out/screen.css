@@ -68,36 +68,92 @@ html, body {
   height: 100%;
   background: #fff;
   color: #555;
+  overflow: hidden;
 }
 
-.wrapper {
-  width: 960px;
-  height: 960px;
-  margin: 0px auto;
+.content {
+  overflow: hidden;
+  *zoom: 1;
+  position: relative;
+  z-index: 100;
+  margin: 0 auto;
+  height: 100%;
+  -webkit-transition: -webkit-transform 10s ease-out;
+  -moz-transition: -moz-transform 10s ease-out;
+  -o-transition: -o-transform 10s ease-out;
+  transition: transform 10s ease-out;
+}
+
+ol {
+  height: 680px;
 }
 
 .item {
-  width: 300px;
-  height: 300px;
-  background: white;
-  border: 2px solid #333;
+  width: 33.33333%;
   float: left;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  margin-right: 0%;
+  display: inline;
+  opacity: 0;
+  -webkit-transition: opacity 1s linear;
+  -moz-transition: opacity 1s linear;
+  -o-transition: opacity 1s linear;
+  transition: opacity 1s linear;
 }
-.item iframe {
-  display: none;
-}
-
-canvas {
-  position: absolute;
-  top: 0px;
+.item .inner {
+  border: 2px solid #333;
   width: 100%;
   height: 100%;
 }
+.item .item:nth-child(1) {
+  background-image: url("/assets/pumpatterns" + 1 + ".jpg");
+}
+.item .item:nth-child(2) {
+  background-image: url("/assets/pumpatterns" + 2 + ".jpg");
+}
+.item .item:nth-child(3) {
+  background-image: url("/assets/pumpatterns" + 3 + ".jpg");
+}
+.item .item:nth-child(4) {
+  background-image: url("/assets/pumpatterns" + 4 + ".jpg");
+}
+.item .item:nth-child(5) {
+  background-image: url("/assets/pumpatterns" + 5 + ".jpg");
+}
+.item .item:nth-child(6) {
+  background-image: url("/assets/pumpatterns" + 6 + ".jpg");
+}
+.item .item:nth-child(7) {
+  background-image: url("/assets/pumpatterns" + 7 + ".jpg");
+}
+.item .item:nth-child(8) {
+  background-image: url("/assets/pumpatterns" + 8 + ".jpg");
+}
+.item .item:nth-child(9) {
+  background-image: url("/assets/pumpatterns" + 9 + ".jpg");
+}
 
-h1 {
-  padding: 20px;
+.item:last-child, .item:nth-child(3), .item:nth-child(6) {
+  margin-right: 0px;
+}
+
+.item:last-child, .item:nth-child(8), .item:nth-child(7) {
+  margin-bottom: 0px;
+}
+
+#canvas-three {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+header {
+  display: none;
+}
+header h1 {
+  padding: 20px 0px;
 }
 
 #canvas-css {
@@ -113,7 +169,7 @@ h1 {
 
 .logo {
   font-family: 'Marcellus SC', serif;
-  font-size: 43.2px;
+  font-size: 24px;
 }
 
 .seed {
@@ -132,9 +188,6 @@ h1 {
 .circle2 {
   position: absolute;
   width: 187px;
-  -webkit-box-shadow: rgba(255, 255, 0, 0.7) 0 0 25px;
-  -moz-box-shadow: rgba(255, 255, 0, 0.7) 0 0 25px;
-  box-shadow: rgba(255, 255, 0, 0.7) 0 0 25px;
   height: 187px;
   border-radius: 94px;
   border: solid 1px #000;

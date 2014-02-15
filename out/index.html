@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>PumPatterns | My Website</title>
+    <meta charset="UTF-8">
+    <title>PumPatterns</title>
     <meta name="generator" content="DocPad v6.60.3" />
     <link href='http://fonts.googleapis.com/css?family=Marcellus+SC' rel='stylesheet' type='text/css'>
     <style >html.wait {
@@ -8,83 +10,64 @@
 	opacity: 0;
 	transition: opacity 0.5s ease;
 }</style><link  rel="stylesheet" href="/screen.css" />
+
+    <meta property="og:image" content="http://www.mixcloud.com/wolleb/pumpatterns-3/">
+
+
 </head>
 <body onload="App.Main()">
+    <header>
+        <h1 class="logo">PumPatterns</h1>
+    </header>
 
-	<div class="wrapper">
-		<header>
-			<h1 class="logo">PumPatterns</h1>
-		</header>
-
-		<section class="content">
-			<!--<script type="application/processing" target="mysketch">-->
-      <!--float framerate = 60; // our "sketch" will have a framerate of 24 frames per second.-->
-
-  <!--int ball_x;           // ball administration: x coordinate-->
-  <!--int ball_y;           // ball administration: y coordinate-->
-  <!--int ball_radius = 20; // ball administration: ball radius-->
-  <!--float r = 100.0;-->
-  <!--float DEG_60 = 1.04719755;-->
-
-  <!--float d = sqrt((2*r)*(2*r) - r*r);-->
-
-  <!--void setup() {-->
-    <!--size(window.innerWidth, window.innerHeight);         // set draw area size-->
-    <!--frameRate(framerate); // set animation framerate-->
-    <!--ball_x = width/2;     // set the initial ball coordinates-->
-    <!--ball_y = ball_radius; // set the initial ball coordinates-->
-    <!--stroke(#003300);      // set the default shape outline colour-->
-    <!--fill(#0000FF);        // set the default shape fill colour-->
-  <!--}-->
-
-  <!--void draw() {-->
-    <!--for(int i=0; i<6; i++) {-->
-        <!--switch(i) {-->
-
-            <!--case 0 :-->
-				    <!--ellipse(350,300,r,r);-->
-			<!--break;-->
-
-            <!--case 1 :-->
-                <!--for(int j=0; j<6; j++) {-->
-                    <!--ellipse(350 + r * cos(j*DEG_60), 300 + r * sin(j*DEG_60), r, r);-->
-                <!--}-->
-            <!--break;-->
-
-            <!--case 2 :-->
-                <!--for(int j=0; j<6; j++) {-->
-                    <!--ellipse(350 + r * cos(j*DEG_60), 300 + r * sin(j*DEG_60), r, r);-->
-                <!--}-->
-            <!--break;-->
+    <section id="grid" class="content">
+			<ol id="items">
+    <li class="item">
+        <div class="inner">
+            <iframe width="100%" height="100%" src="//www.mixcloud.com/widget/iframe/?feed=http%3A%2F%2Fwww.mixcloud.com%2Fwolleb%2Fpumpatterns-1%2F&amp;embed_type=widget_standard&amp;embed_uuid=e4f50ce2-789c-46ea-a19f-a02ffda38b95" frameborder="0"></iframe>
+    </li>
+    <li class="item">
+        <div class="inner">
 
 
-        <!--}-->
+            <iframe width="100%" height="100%" src="//www.mixcloud.com/widget/iframe/?feed=http%3A%2F%2Fwww.mixcloud.com%2Fwolleb%2Fpumpatterns-2%2F&amp;embed_type=widget_standard&amp;embed_uuid=cc9d9612-a6d5-4313-a9f4-fc7e072558b5" frameborder="0"></iframe>
 
-    <!--}-->
-  <!--}-->
-  <!--Class Cir-->
 
-      <!--</script>-->
-<canvas id="canvas"></canvas>
+        </div>
+    </li>
+    <li class="item">
+        <div class="inner">
 
-<ol role="main">
-    <li class="item"></li>
-    <li class="item"></li>
-    <li class="item"></li>
-    <li class="item"></li>
-    <li class="item"></li>
-    <li class="item"></li>
-    <li class="item"></li>
-    <li class="item"></li>
-    <li class="item"></li>
-   
+            <iframe width="100%" height="100%" src="//www.mixcloud.com/widget/iframe/?feed=http%3A%2F%2Fwww.mixcloud.com%2Fwolleb%2Fpumpatterns-3%2F&amp;embed_type=widget_standard&amp;embed_uuid=98ebf600-0025-4f57-abcc-3149d1c6f7a2" frameborder="0"></iframe>
 
+        </div>
+    </li>
+    <li class="item">
+        <div class="inner"></div>
+    </li>
+    <li class="item">
+        <div class="inner"></div>
+    </li>
+    <li class="item">
+        <div class="inner"></div>
+    </li>
+    <li class="item">
+        <div class="inner"></div>
+    </li>
+    <li class="item">
+        <div class="inner"></div>
+    </li>
+    <li class="item">
+        <div class="inner"></div>
+    </li>
 </ol>
-		</section>
-	</div>
+    </section>
     
-    <div id="canvas-css"></div>
-    
+    <!--<div id="canvas-css"></div>-->
+    <section id="canvas-three"></section>
+
+
+
     <script >(function(){
 	/* Did we just livereload? */
 var log = !!(localStorage && console && console.log && true);
@@ -130,6 +113,35 @@ var inject = function(){
 	} else {
 		inject();
 	}
-})();</script><script defer="defer"  src="/js/lib.js"></script><script defer="defer"  src="/js/dancer.js"></script><script defer="defer"  src="/js/processing-1.4.1.js"></script>
+})();</script><script defer="defer"  src="/js/three.min.js"></script><script defer="defer"  src="/js/shaders/VignetteShader.js"></script><script defer="defer"  src="/js/shaders/CopyShader.js"></script><script defer="defer"  src="/js/shaders/DotScreenShader.js"></script><script defer="defer"  src="/js/shaders/RGBShiftShader.js"></script><script defer="defer"  src="/js/post/EffectComposer.js"></script><script defer="defer"  src="/js/post/RenderPass.js"></script><script defer="defer"  src="/js/post/MaskPass.js"></script><script defer="defer"  src="/js/post/ShaderPass.js"></script><script defer="defer"  src="/js/lib.js"></script><script defer="defer"  src="/js/dancer.js"></script><script defer="defer"  src="/js/processing-1.4.1.js"></script><script defer="defer"  src="/js/TrackballControls.js"></script>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-48062185-1', 'pumpatterns.co.uk');
+        ga('send', 'pageview');
+
+    </script>
+
+    <!-- AddThis Smart Layers BEGIN -->
+    <!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52fd0fa531ffef7f"></script>
+    <script type="text/javascript">
+        addthis.layers({
+            'theme' : 'light',
+            'share' : {
+                'position' : 'right',
+                'numPreferredServices' : 1
+            }
+        });
+    </script>
+    <!-- AddThis Smart Layers END -->
+
+
+
+
 </body>
 </html>
