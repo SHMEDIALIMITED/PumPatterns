@@ -1,51 +1,9 @@
 var App = function() {
 
 
-    var dancer = new Dancer();
-
-    kick = dancer.createKick({
-        onKick: function ( mag ) {
-            //console.log('Kick!');
-        },
-        offKick: function ( mag ) {
-            console.log(mag)
-        }
-    });
-
-
-    kick.on();
-    //c.style.background = '#ff0000';
-
-    dancer.onceAt( 10, function() {
-        // Let's set up some things once at 10 seconds
-
-    }).between( 10, 60, function() {
-            // After 10s, let's do something on every frame for the first minute
-        }).after( 1, function() {
-            // After 60s, let's get this real and map a frequency to an object's y position
-            // Note that the instance of dancer is bound to "this"
-
-            //console.log(c)
-
-            var s = this.getFrequency( 535 ) * 100000;
-
-            for(var i = 0; i < circles.length; i++) {
-                c = circles[i];
-                //console.log(c)
-                if(c)
-                    c.style.webkitTransform = 'translate(0px,' + (s) + 'px)'
-                //c.style.left = c.x + s + 'px';
-            }
-        }).onceAt( 120, function() {
-            // After 120s, we'll turn the kick off as another object's y position is still being mapped from the previous "after" method
-            kick.off();
-        }).load({ src: '/music/PumpPatterns01', codecs: [  'mp3' ]}); // And finally, lets pass in our Audio element to load
-
-    dancer.play().setVolume(0);
-    this.dancer = dancer;
 
 	///this.gl = glt.getGL(document.getElementById('canvas'), {alpha:false});
-    this.canvas = new App.CanvasThree(dancer);
+    this.canvas = new App.CanvasThree();
 
     this.el = document.getElementById('grid');
 
@@ -151,9 +109,9 @@ App.prototype = {
 
 }
 
-App.CanvasThree = function(dancer) {
+App.CanvasThree = function() {
 
-    this.dancer = dancer;
+    //this.dancer = dancer;
 
     var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;
     var VIEW_ANGLE = 45, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 20000;
@@ -323,7 +281,7 @@ App.CanvasThree = function(dancer) {
     }
 
 
-    var wave = this.dancer.getWaveform();
+    //var wave = this.dancer.getWaveform();
     var vertices = this.circleGeometry.vertices;
     var  i = 0, l = vertices.length;
 
@@ -419,7 +377,7 @@ App.CanvasThree.prototype = {
         }
 
 
-        var wave = this.dancer.getWaveform();
+        //var wave = this.dancer.getWaveform();
         var vertices = this.circleGeometry.vertices;
         var  i = 0, l = vertices.length;
 

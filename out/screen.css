@@ -50,13 +50,13 @@ a img {
   border: none;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
 
 * {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -78,9 +78,9 @@ html, body {
   z-index: 100;
   margin: 0 auto;
   height: 100%;
-  -webkit-transition: -webkit-transform 10s ease-out;
   -moz-transition: -moz-transform 10s ease-out;
   -o-transition: -o-transform 10s ease-out;
+  -webkit-transition: -webkit-transform 10s ease-out;
   transition: transform 10s ease-out;
 }
 
@@ -94,9 +94,9 @@ ol {
   margin-right: 0%;
   display: inline;
   opacity: 0;
-  -webkit-transition: opacity 1s linear;
   -moz-transition: opacity 1s linear;
   -o-transition: opacity 1s linear;
+  -webkit-transition: opacity 1s linear;
   transition: opacity 1s linear;
 }
 .item .inner {
